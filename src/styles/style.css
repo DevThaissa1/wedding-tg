@@ -1,21 +1,21 @@
 /* Fontes */
 @font-face {
   font-family: "Alta.font";
-  src: url("fonts/Alta.font/BemirsDemoVersionRegular-L360Z.ttf")
-    format("truetype");
+  src: url("/fonts/Alta.font/BemirsDemoVersionRegular-L360Z.ttf") format("truetype");
 }
 @font-face {
   font-family: "Brownsugar.font";
-  src: url("fonts/Brownsugar.font/Brown%20Sugar%20.ttf") format("truetype");
+  src: url("/fonts/Brownsugar.font/Brown%20Sugar%20.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ragelo.font";
-  src: url("fonts/Ragelo.font/RageloDemoBold-ARWlM.ttf") format("truetype");
+  src: url("/fonts/Ragelo.font/RageloDemoBold-ARWlM.ttf") format("truetype");
 }
 @font-face {
   font-family: "Theseasons.font";
-  src: url("fonts/Theseasons.font/Queensides-3z7Ey.ttf") format("truetype");
+  src: url("/fonts/Theseasons.font/Queensides-3z7Ey.ttf") format("truetype");
 }
+
 /* Páginas ficam padrão e remoção de margens*/
 * {
   margin: 0;
@@ -53,7 +53,7 @@
   --cor-gradiente-4: linear-gradient(135deg, #ffe787, #faff70);
   --cor-gradiente-5: linear-gradient(135deg, #e5446d, #b6465f);
   --cor-gradiente-6: linear-gradient(135deg, #337357, #6d9f71);
-}*/
+}
 /* Cores 
 :root2 {
   --cor-1: #e5446d; /* Rosa vibrante 
@@ -74,7 +74,7 @@
  /*Estilos*/
 body {
   font-family: "Theseasons.font", Arial, sans-serif;
-  background-color: var(--cor-22);
+  background-color: var( --cor-6);
   color: ;
   margin: 0;
   padding: 0;
@@ -91,7 +91,8 @@ a {
 }
 a:hover {
   color: var;
-} /*Menu*/
+} 
+/*Menu*/
 nav {
   display: flex;
   justify-content: space-between;
@@ -111,7 +112,8 @@ nav {
   background-color: ;
   margin: 4px 0;
   transition: 0.4s;
-} /*Animação Hambúrguer*/
+} 
+/*Animação Hambúrguer*/
 .menu-toggle.active .bar:nth-child(1) {
   opacity: 20;
   transform: rotate(90deg) translate(-5px, 6px);
@@ -122,7 +124,8 @@ nav {
 .menu-toggle.active .bar:nth-child(3) {
   opacity: 20;
   transform: rotate(-90deg) translate(5px, -6px);
-} /* Menu Mobile*/
+} 
+/* Menu Mobile */
 .nav-list {
   display: none;
   flex-direction: column;
@@ -161,7 +164,8 @@ nav {
 }
 main {
   margin: 2rem;
-} /*Seções Principais*/
+} 
+/*Seções Principais*/
 section {
   margin-bottom: 2rem;
   padding: 1rem;
@@ -264,7 +268,8 @@ a:hover {
   border: 2px solid #145b3;
   border-radius: 5px;
   background-color: ;
-} /*Lista para presentes*/
+} 
+/*Lista para presentes*/
 #lista-presente {
   margin: 20px;
   padding: 20px;
