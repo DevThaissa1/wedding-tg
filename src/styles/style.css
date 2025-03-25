@@ -1,0 +1,357 @@
+/* Fontes */
+@font-face {
+  font-family: "Alta.font";
+  src: url("fonts/Alta.font/BemirsDemoVersionRegular-L360Z.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Brownsugar.font";
+  src: url("fonts/Brownsugar.font/Brown%20Sugar%20.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ragelo.font";
+  src: url("fonts/Ragelo.font/RageloDemoBold-ARWlM.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Theseasons.font";
+  src: url("fonts/Theseasons.font/Queensides-3z7Ey.ttf") format("truetype");
+}
+/* Páginas ficam padrão e remoção de margens*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*Cores*/
+:root {
+  --cor-1: #e5446d; /* Rosa vibrante */
+  --cor-2: #ff8966; /* Laranja suave */
+  --cor-3: #ffcf56; /* Amarelo pastel */
+  --cor-4: #2e6171; /* Azul sofisticado */
+  --cor-5: #82d173; /* Verde primavera */
+  --cor-6: #f9f5e3; /* Bege claro */
+  --cor-7: #eef4d4; /* Verde suave */
+  --cor-8: #333333; /* Cinza escuro */
+  --cor-9: #ffffff; /* Branco puro */
+  --cor-10: #1d3461; /* Azul escuro clássico */
+  --cor-11: #ffe787; /* Amarelo dourado */
+  --cor-12: #337357; /* Verde musgo */
+  --cor-13: #6d9f71; /* Verde menta */
+  --cor-14: #faff70; /* Amarelo vibrante */
+  --cor-15: #f7a072; /* Coral suave */
+  --cor-16: #472c1b; /* Marrom terra */
+  --cor-17: #abe188; /* Verde claro */
+  --cor-18: #ff9b42; /* Laranja quente */
+  --cor-19: #b6465f; /* Rosa antigo */
+  --cor-20: #ffcf56; /* Dourado suave */
+  --cor-21: #ff8966; /* Laranja quente */
+  --cor-22: #ffe0b5; /* Pêssego suave */
+  --cor-23: #d95d77; /* Rosa moderno */
+  --cor-gradiente-1: linear-gradient(135deg, #ff7f11, #ca2e55);
+  --cor-gradiente-2: linear-gradient(135deg, #f8cc0e, #ff9b42);
+  --cor-gradiente-3: linear-gradient(135deg, #82d173, #2e6171);
+  --cor-gradiente-4: linear-gradient(135deg, #ffe787, #faff70);
+  --cor-gradiente-5: linear-gradient(135deg, #e5446d, #b6465f);
+  --cor-gradiente-6: linear-gradient(135deg, #337357, #6d9f71);
+}*/
+/* Cores 
+:root2 {
+  --cor-1: #e5446d; /* Rosa vibrante 
+  --cor-2: #ff8966; /* Laranja suave 
+  --cor-3: #ffcf56; /* Amarelo pastel 
+  --cor-4: #2e6171; /* Azul sofisticado 
+  --cor-5: #82d173; /* Verde primavera 
+  --cor-6: #f9f5e3; /* Bege claro 
+  --cor-8: #333333; /* Cinza escuro 
+  --cor-9: #ffffff; /* Branco puro 
+  --cor-gradiente-1: linear-gradient(135deg, #ff7f11, #ca2e55);
+}*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ /*Estilos*/
+body {
+  font-family: "Theseasons.font", Arial, sans-serif;
+  background-color: var(--cor-22);
+  color: ;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+header {
+  color: ;
+  padding: 1rem;
+  text-align: center;
+}
+a {
+  color: var;
+  text-decoration: none;
+}
+a:hover {
+  color: var;
+} /*Menu*/
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var;
+}
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 11;
+}
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: ;
+  margin: 4px 0;
+  transition: 0.4s;
+} /*Animação Hambúrguer*/
+.menu-toggle.active .bar:nth-child(1) {
+  opacity: 20;
+  transform: rotate(90deg) translate(-5px, 6px);
+}
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+  opacity: 20;
+  transform: rotate(-90deg) translate(5px, -6px);
+} /* Menu Mobile*/
+.nav-list {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  background-color: var;
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+  list-style: none;
+}
+.nav-list.active {
+  display: flex;
+  transform: translateY(0%);
+  margin-left: 0;
+  padding: 1rem 0;
+}
+.nav-list li {
+  margin-left: 2rem;
+}
+.nav-list a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var;
+  font-weight: bold;
+  transition: 0.4s;
+}
+.nav-list a:hover {
+  color: var;
+}
+.nav-list a i {
+  margin-right: 8px;
+}
+main {
+  margin: 2rem;
+} /*Seções Principais*/
+section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: ;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1,
+h2,
+h3 {
+  font-family: "Brownsugar.font", Arial, sans-serif;
+  color: ;
+  margin-bottom: 1rem;
+}
+p {
+  font-family: "Theseasons.font", Arial, sans-serif;
+} 
+
+/* Galeria*/
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.galeria img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.galeria img:hover {
+  transform: scale(1.05);
+} 
+/*Estilo para Formulário*/
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: ;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+input[type="text"],
+input[type="radio"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ca109c;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input[type="text"]:focus {
+  border-color: ;
+  box-shadow: 0 0 8px rgba(255, 128, 10, 0.5);
+  outline: none;
+}
+button {
+  background-color: ;
+  color: ;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+button,
+a {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+  background-color: ;
+}
+button:active {
+  transform: scale(0.95);
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+a:hover {
+  color: ;
+}
+#success-message {
+  display: none;
+  color: ;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid #145b3;
+  border-radius: 5px;
+  background-color: ;
+} /*Lista para presentes*/
+#lista-presente {
+  margin: 20px;
+  padding: 20px;
+  background-color: ;
+  border-radius: 8px;
+  text-align: center;
+}
+#lista-presente h2 {
+  font-size: 24px;
+  color: ;
+  margin-bottom: 10px;
+}
+#lista-presente p {
+  font-size: 16px;
+  color: ;
+  margin-bottom: 20px;
+}
+#lista-presente ul {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+#lista-presente li {
+  background-color: ;
+  border: 1px solid #dd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+#lista-presente li:hover {
+  transform: scale(1.05);
+}
+#lista-presente img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+#lista-presente a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  color: ;
+}
+#lista-presente a:hover {
+  color: ;
+  text-decoration: underline;
+}
+#lista-presente button {
+  background-color: ;
+  color: ;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+#lista-presente button:hover {
+  background-color: var;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6 ease-out, transform 0.6s ease-out;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+footer {
+  background-color: ;
+  color: ;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+/* Animação Fade-In */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
