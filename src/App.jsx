@@ -14,16 +14,16 @@ function App() {
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/casal">Casal</Link></li>
-          <li><Link to="/confirmar">Confirmação</Link></li>
-          <li><Link to="/presentes">Presentes</Link></li>
+          <li><Link to="/Casal">Casal</Link></li>
+          <li><Link to="/Confirmar">Confirmação</Link></li>
+          <li><Link to="/Presentes">Presentes</Link></li>
         </ul>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/casal" element={<Casal />} />
-        <Route path="/confirmar" element={<Confirmar />} />
-        <Route path="/presentes" element={<Presentes />} />
+        <Route path="/Casal" element={<Casal />} />
+        <Route path="/Confirmar" element={<Confirmar />} />
+        <Route path="/Presentes" element={<Presentes />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
