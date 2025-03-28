@@ -1,34 +1,31 @@
-import express from 'express';
-import mongoose from 'mongoose';
+import process from "process";
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-
-// Middleware para tratar o corpo das requisições como JSON
+app.use(cors());
 app.use(express.json());
 
-// Definir a rota para criar uma reserva
-app.post('/api/reserva', (req, res) => {
-  const { nome, email, numero_de_pessoas } = req.body;
+const PORT = process.env.PORT || 3001;
 
-  // Aqui você pode adicionar a lógica para salvar a reserva no MongoDB
-  res.status(200).json({
-    message: 'Reserva criada com sucesso!',
-    data: req.body
-  });
+// Conectar ao MONGODB
+
+mongoose
+.connect (process.env.MONGO_URI)
+.then(() => console.log("MongoDB conectado"))
+.catch((err) => console.error("Erro ao conectar ao MongoDB:", err));
+
+// Rota Inicial
+
+app.get("/", (req, res)=> {
+    res.send("Servidor rodando...");
 });
 
-// Conectar ao banco de dados MongoDB
-mongoose.connect('mongodb://localhost/wedding', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log('Conectado ao MongoDB');
-}).catch((err) => {
-  console.error('Erro ao conectar ao MongoDB:', err);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
 
-// Iniciar o servidor
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});

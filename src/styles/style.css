@@ -27,9 +27,9 @@
   --cor-1: #e5446d; /* Rosa vibrante */
   --cor-2: #ff8966; /* Laranja suave */
   --cor-3: #ffcf56; /* Amarelo pastel */
-  --cor-4: #2e6171; /* Azul sofisticado */
+  --cor-4: #2e6171; /* Azul sofisticado*/ 
   --cor-5: #82d173; /* Verde primavera */
-  --cor-6: #f9f5e3; /* Bege claro */
+  --cor-6: #f9f5e3; /* Bege claro*/ 
   --cor-7: #eef4d4; /* Verde suave */
   --cor-8: #333333; /* Cinza escuro */
   --cor-9: #ffffff; /* Branco puro */
@@ -54,18 +54,7 @@
   --cor-gradiente-5: linear-gradient(135deg, #e5446d, #b6465f);
   --cor-gradiente-6: linear-gradient(135deg, #337357, #6d9f71);
 }
-/* Cores 
-:root2 {
-  --cor-1: #e5446d; /* Rosa vibrante 
-  --cor-2: #ff8966; /* Laranja suave 
-  --cor-3: #ffcf56; /* Amarelo pastel 
-  --cor-4: #2e6171; /* Azul sofisticado 
-  --cor-5: #82d173; /* Verde primavera 
-  --cor-6: #f9f5e3; /* Bege claro 
-  --cor-8: #333333; /* Cinza escuro 
-  --cor-9: #ffffff; /* Branco puro 
-  --cor-gradiente-1: linear-gradient(135deg, #ff7f11, #ca2e55);
-}*/
+
 * {
   margin: 0;
   padding: 0;
@@ -74,14 +63,14 @@
  /*Estilos*/
 body {
   font-family: "Theseasons.font", Arial, sans-serif;
-  background-color: var( --cor-6);
-  color: ;
+  background-color: var(--cor-19);
+  color: var(--cor-8);
   margin: 0;
   padding: 0;
   line-height: 1.6;
 }
 header {
-  color: ;
+  color: var(--cor-8);
   padding: 1rem;
   text-align: center;
 }
