@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../components/FadeIn";
-import GuestList from "../components/GuestList"; 
 import "../styles/style.css";
 import "../styles/media.css";
+import axios from "axios";
 
 function Confirmar() {
   // Estado para armazenar os dados do formulário
@@ -11,6 +11,7 @@ function Confirmar() {
   const [rsvp, setRsvp] = useState("");
   const [acompanhantes, setAcompanhantes] = useState([]);
   const [mensagemConfirmacao, setMensagemConfirmacao] = useState("");
+  const [erro, setErro] = useState("");
 
   const maxGuests = 5; // Limite de acompanhantes
 
@@ -37,15 +38,30 @@ function Confirmar() {
   };
 
   // Função para enviar o formulário
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault(); // Evita o reload da página
+    console.log("Enviando formulário...")
+
 
     if (!name || !rsvp) {
       alert("Por favor, preencha seu nome e confirme a presença.");
       return;
     }
 
-    setMensagemConfirmacao("Confirmado! Obrigado.");
+    // Enviar os dados para o servidor
+    try {
+      const response = await axios.post("/api/confirmar-presenca", {
+        nome: name,
+        acompanhantes: acompanhantes,
+      });
+
+      setMensagemConfirmacao(response.data.mensagem); // Mensagem de sucesso
+      setErro(""); // Limpar erro, caso haja algum anterior
+    } catch (error) {
+      console.error("Erro ao enviar confirmação:", error);
+      setErro(error.response?.data?.mensagem || "Erro ao confirmar presença, tente novamente."); // Exibir erro
+      setMensagemConfirmacao(""); // Limpar mensagem de sucesso
+    }
   };
 
   return (
@@ -158,6 +174,12 @@ function Confirmar() {
             {mensagemConfirmacao && (
               <div id="success-message">
                 {mensagemConfirmacao}
+              </div>
+            )}
+
+            {erro && (
+              <div id="error-message">
+                {erro}
               </div>
             )}
           </section>

@@ -1,11 +1,62 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import PresentButton from "../components/PresentButton";
 import FadeIn from "../components/FadeIn";
 import "../styles/style.css";
 import "../styles/media.css";
 
 function Presentes() {
+
+  const [presentes, setPresentes] = useState([]);
+  const [nome] = useState ("");
+  // Removed unused mensagem state
+
+  //Função que busca presentes do back-end
+
+  useEffect(() => {
+       axios
+       .get("/api/presentes") // rota para os presentes
+      .then(() => {
+        setPresentes(response.data); // Atualiza o estado dos presentes
+       })
+
+       .catch((error) => {
+
+        console.error("Erro ao carregar presentes:", error);
+       });
+}, []);
+
+//Função para reservar um presente
+
+const reservarPresente = (presenteId) =>{
+      if(!nome){
+        alert("Por Favor, insira seu nome antes de reservar um presente.");
+        return;
+      }
+
+      axios
+      .post("/api/reservar-presente", { nome, presenteId }) // Rota para reserva dos presentes
+      .then((response) =>{
+        // Removed unused mensagem setter
+
+        //Atualiza o status do presente
+       
+        setPresentes(
+          presentes.map((presente) => 
+          presente._id === presenteId
+          ?{...presente, status: "reservado", reservadoPor: nome }
+          : presente
+          )
+        );
+      })
+
+      .catch((error) => {
+        console.error("Erro ao reservar presente:", error);
+        // Removed unused mensagem setter
+      });
+};
+
   return (
     <>
       <nav aria-label="Menu principal">
@@ -76,7 +127,7 @@ function Presentes() {
                   >
                     Panela
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente} />
                 </li>
                 <li>
                   <img
@@ -90,7 +141,7 @@ function Presentes() {
                   >
                     Capa de Edredom e Fronhas
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente} />
                 </li>
                 <li>
                   <img
@@ -104,7 +155,7 @@ function Presentes() {
                   >
                     Frigideira
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -118,7 +169,7 @@ function Presentes() {
                   >
                     Lençol cama Casal
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -126,7 +177,7 @@ function Presentes() {
                     alt="Panos de Prato"
                   />
                   <a>Panos de Prato</a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -154,7 +205,7 @@ function Presentes() {
                   >
                     Toalha de Banho
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -168,7 +219,7 @@ function Presentes() {
                   >
                     Jarro Elétrico
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -182,7 +233,7 @@ function Presentes() {
                   >
                     Toalha de Banho
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -196,7 +247,7 @@ function Presentes() {
                   >
                     Liquidificador
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -210,7 +261,7 @@ function Presentes() {
                   >
                     Toalha de Mãos
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -224,7 +275,7 @@ function Presentes() {
                   >
                     Air Frier
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -232,7 +283,7 @@ function Presentes() {
                     alt="Frigideiras Antiaderente"
                   />
                   <a>Frigideiras Antiaderente</a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -246,7 +297,7 @@ function Presentes() {
                   >
                     Toalha de Mãos
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -254,7 +305,7 @@ function Presentes() {
                     alt="Assadeiras"
                   />
                   <a>Assadeiras</a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -268,7 +319,7 @@ function Presentes() {
                   >
                     Lençol Cama
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -282,7 +333,7 @@ function Presentes() {
                   >
                     Potes de Plástico
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -296,7 +347,7 @@ function Presentes() {
                   >
                     Travessa de Vidro
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -310,7 +361,7 @@ function Presentes() {
                   >
                     Jogos de Talher
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -324,7 +375,7 @@ function Presentes() {
                   >
                     Taças de Vidro
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
 
                 <li>
@@ -339,7 +390,7 @@ function Presentes() {
                   >
                     Conjunto de Pratos
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -353,7 +404,7 @@ function Presentes() {
                   >
                     Jogos de Copos
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -367,7 +418,7 @@ function Presentes() {
                   >
                     Forma Antiaderente
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -381,7 +432,7 @@ function Presentes() {
                   >
                     Recipiente Vidro
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -395,7 +446,7 @@ function Presentes() {
                   >
                     Recipiente Vidro Medio
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -409,7 +460,7 @@ function Presentes() {
                   >
                     Recipiente Vidro Pequeno
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -423,7 +474,7 @@ function Presentes() {
                   >
                     Escorredor de Louça
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -437,7 +488,7 @@ function Presentes() {
                   >
                     Utensílios Diversos
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -451,7 +502,7 @@ function Presentes() {
                   >
                     Edredom
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -465,7 +516,7 @@ function Presentes() {
                   >
                     Ralador
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -479,7 +530,7 @@ function Presentes() {
                   >
                     Travesseiro
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -493,7 +544,7 @@ function Presentes() {
                   >
                     Formas de Bolo
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -507,7 +558,7 @@ function Presentes() {
                   >
                     Almofada
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -521,7 +572,7 @@ function Presentes() {
                   >
                     Boleira
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -535,7 +586,7 @@ function Presentes() {
                   >
                     Potes de Vidro
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -549,7 +600,7 @@ function Presentes() {
                   >
                     Descascador de Batata
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -557,7 +608,7 @@ function Presentes() {
                     alt="Kits de tábuas"
                   />
                   <a>Tábuas</a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -571,7 +622,7 @@ function Presentes() {
                   >
                     Escorredor de Massa
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -585,7 +636,7 @@ function Presentes() {
                   >
                     Peneiras de Aço
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -593,7 +644,7 @@ function Presentes() {
                     alt="Batedeira"
                   />
                   <a>Batedeira</a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -607,7 +658,7 @@ function Presentes() {
                   >
                     Kit de Chavenas
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -621,7 +672,7 @@ function Presentes() {
                   >
                     Tesoura de Cozinha
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -635,7 +686,7 @@ function Presentes() {
                   >
                     Forma Quadrada
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -643,7 +694,7 @@ function Presentes() {
                     alt="Kit Casa de Banho"
                   />
                   <a>Kit Casa de Banho</a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img
@@ -658,7 +709,7 @@ function Presentes() {
                   >
                     Processador
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
                 <li>
                   <img src="/images/lista-presente/Saleiro.png" alt="Saleiro" />
@@ -669,7 +720,7 @@ function Presentes() {
                   >
                     Saleiro
                   </a>
-                  <PresentButton />
+                  <PresentButton onReserve={reservarPresente}/>
                 </li>
               </ul>
             </section>
